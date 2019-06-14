@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <title>Account</title>
+  </head>
+
+  <body>
+  
+  
+    <div id="container">
+
+      <div id="header">
+        <h1>Parking Application</h1>
+        <link rel="stylesheet" type="text/css" href="design.css" />
+      </div>
+
+      <div id="content">
+        <div id="nav">
+          <h3>Menu</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="lots.html">Lots</a></li>
+              <li><a class="selected"  href="">Account</a></li>
+              <li><a href="about.html">About</a></li>
+			  <li><a href="staff.html">Staff</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div id="main">
+		<h2>Account</h2>
+
+<div id="frm">
+<form action="process1.php" method="$_POST">
+
+    <label><b>Username:</b></label>
+    <input type="text" id="user" name="user" />
+
+   <p> <label><b>Password:</b></label>
+    <input type="password" id="pass" name="pass" /></p> 
+        
+    <input type="submit" id ="btn" value="Login" />
+  </div>
+
+</form>
+		
+		<p><li><a href="users.html">New Account</a></li></p>
+          <p>Logging in to your account allows you to book parking spaces as well as pay off parking tickets. </p>
+          <p> <div class="imgcontainer">
+    <img src="car.png" alt="Avatar" class="avatar">
+  </div>
+</p>
+        </div>
+      </div>
+	  
+
+      <div id="footer">
+        Copyright &copy; 2019 Ajit Pawa.
+      </div>
+    </div>
+  </body>
+
+</html>
