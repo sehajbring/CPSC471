@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <title>Tickets</title>
+  </head>
+
+  <body>
+    <div id="container">
+
+      <div id="header">
+        <h1>Parking Application</h1>
+        <link rel="stylesheet" type="text/css" href="design.css" />
+      </div>
+
+      <div id="content">
+        <div id="nav">
+          <h3>Menu</h3>
+            <ul>
+              <li><a class="index.html" href="">Home</a></li>
+              <li><a href="lots.html">Lots</a></li>
+              <li><a href="index.php">Account</a></li>
+              <li><a class="selected" href="">Tickets</a></li>
+              <li><a href="about.html">About</a></li>
+			  <li><a href="staff.html">Staff</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div id="main">
+	<form action="process.php" method="$_POST">
+	<p>
+	<label>Ticket ID</label>
+	<input type="text" id="tick_id" name="tick_id" />
+	</p>
+	<p>
+	<label>Licence Plate</label>
+	<input type="text" id="licence" name="licence" />
+	</p>
+	<p>
+	<input type="submit" id="btn" value="Retrieve" />
+	</p>
+    </div>
+      </div>
+
+      <div id="footer">
+        Copyright &copy; 2019 Ajit Pawa.
+      </div>
+    </div>
+  </body>
+
+</html>
