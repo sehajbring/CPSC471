@@ -6,9 +6,11 @@
       $result = mysqli_query ($conn, $sql) or die ("Bad query: $sql");
       $row = mysqli_fetch_array($result);
 
-      $sql2 = "SELECT * FROM lot_location;";
+      $sql2 = "SELECT * FROM lot_location WHERE lot_id = $ID;";
       $result2 = mysqli_query ($conn, $sql2) or die ("Bad query: $sql2");
       $row2 = mysqli_fetch_array($result2);
+      session_start();
+      $_SESSION['lotId'] = $ID;
 
     }
 ?>
@@ -48,8 +50,13 @@
 
           <p>Total number of spots: <?php echo $row['num_total'] ?></p>
           <p>Total number of available spots: <?php echo $row['num_available'] ?></p>
-		  <p><li><a href="account.html">Book Spot</a></li>
-		  </p>
+          <?php
+  // ?ids = ?ID;
+echo "<a href=bookspot.php?ID = {?row2 ['lot_id']}> Book Spot</a>";
+
+?>
+
+      <!-- <p><b id="logout"><a href="logout.php">Log Out</a></b></p> -->
          </div>
       </div>
 

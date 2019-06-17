@@ -1,13 +1,9 @@
-<?php
-    include_once 'includes/dbh.inc.php';
-?>
-
 <!DOCTYPE html>
 
 <html>
 
   <head>
-    <title>Lots</title>
+    <title>Tickets</title>
   </head>
 
   <body>
@@ -23,7 +19,7 @@
           <h3>Menu</h3>
             <ul>
               <li><a href="index.html">Home</a></li>
-              <li><a class="selected" href="">Lots</a></li>
+              <li><a href="lots.php">Lots</a></li>
               <li><a href="index.php">Account</a></li>
               <li><a href="about.html">About</a></li>
 			  <li><a href="staff.html">Staff</a></li>
@@ -31,23 +27,19 @@
             </ul>
         </div>
         <div id="main">
-          <h2>Lots</h2>
-          <p><b>Availible Lots</b></p>
-          <?php
-            $sql = "SELECT * FROM  lot_location;";
-            $result = mysqli_query($conn, $sql);
-            $resultCheck = mysqli_num_rows($result);
+        <form action="" method="post">
+   <label>Ticket Number :</label>
+   <input id="ticket_num" name="tick_num" placeholder="Ticket number" type="text">
+   <p><label>Licence Plate Number :</label>
+   <input id="password" name="password" placeholder="Licence plate" type="text"><br><br></p>
+   <input name="submit" type="submit" value=" View Ticket ">
+   <!-- <span><?php echo $error; ?></span> -->
+   </div>
+  </form>
 
-            if ($resultCheck > 0){
-                while($column = mysqli_fetch_assoc($result)){
-                    echo "<a href = 'parkinglots.php?id={$column['lot_id']}'> {$column['location']} </a> <br> <br> \n";
-                }
-            }
-          ?>
-          		  <!-- <p><b id="logout"><a href="logout.php">Log Out</a></b></p> -->
+      <!-- <p><b id="logout"><a href="logout.php">Log Out</a></b></p> -->
          </div>
       </div>
-      
 
       <div id="footer">
         Copyright &copy; 2019 Ajit Pawa.

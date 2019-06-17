@@ -25,7 +25,7 @@ if(!isset($_SESSION['login_user'])){
           <h3>Menu</h3>
             <ul>
               <li><a href="index.html">Home</a></li>
-              <li><a href="lots.html">Lots</a></li>
+              <li><a href="lots.php">Lots</a></li>
               <li><a class="selected" href="index.php">Account</a></li>
               <li><a href="about.html">About</a></li>
 			  <li><a href="staff.html">Staff</a></li>
@@ -34,9 +34,9 @@ if(!isset($_SESSION['login_user'])){
         </div>
         <div id="profile">
  <b id="welcome">Welcome : <i><?php echo $login_session; ?></i></b>
-		  <p><a href="index.html">Book a parking space</a></p>
+		  <p><a href="lots.php">Book a parking space</a></p>
           <p>How? I'm glad you asked. We all suffer from a very unique condition know as ligma.</p>
-		  <a href="index.html">Pay parking ticket</a>
+		  <a href="parkingtickets.php">Pay parking ticket</a>
 		  <p>LIGMA BALLS</p>
 		  <p><b id="logout"><a href="logout.php">Log Out</a></b></p>
         </div>
