@@ -3,8 +3,9 @@
     $tic_num = $_POST ['tick_num'];
     $licence_pl = $_POST['licence_p'];
 
-    $sql = "SELECT * FROM parktic WHERE ticket_id = tic_num;";
+    $sql = "SELECT * FROM parktic WHERE parktic.ticket_id = $tic_num;";
     $results = mysqli_query($conn, $sql);
+    
     
     ?>
 
@@ -31,21 +32,36 @@
             <ul>
               <li><a href="index.html">Home</a></li>
               <li><a href="lots.php">Lots</a></li>
-              <li><a class="selected"href="index.php">Account</a></li>
+              <li><a class="selected"href="welcome.php">Account</a></li>
               <li><a href="about.html">About</a></li>
-			  <li><a href="staff.html">Staff</a></li>
+			  <li><a href="welcome_staff.php">Staff</a></li>
               <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
         <div id="main">
-        <form action="" method="POST">
-   <label>Ticket Number :</label>
-   <input id="ticket_num" name="tick_num" placeholder="Ticket number" type="text">
-   <p><label>Licence Plate Number :</label>
-   <input id="password" name="licence_p" placeholder="Licence plate" type="text"><br><br></p>
-   <input name="submit" type="submit" value=" View Ticket ">
-   </div>
-  </form>
+</p>
+        <?php
+
+        if ( $results-> num_rows == 0){
+            echo "Ticket information not found, ticket may have been paid or is not avalible in the system yet.";
+        }
+
+        else{
+            echo "<br>";
+            echo "<table border='1'>";
+            while ($row = mysqli_fetch_assoc($results)) {
+                echo "<tr>";
+                foreach ($row as $field => $value) { 
+                    echo "<td>" . $value . "</td>"; 
+                }
+                echo "</tr>";
+            }
+        echo "</table>";
+        echo "<a href=ticketpaid.php?tnum = {?tic_num}> Pay Ticket</a>";
+        }
+        ?>
+
+</p>
 
       <!-- <p><b id="logout"><a href="logout.php">Log Out</a></b></p> -->
          </div>
