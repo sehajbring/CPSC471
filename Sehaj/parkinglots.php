@@ -37,9 +37,9 @@
             <ul>
               <li><a href="index.html">Home</a></li>
               <li><a href="lots.php">Lots</a></li>
-              <li><a href="index.php">Account</a></li>
+              <li><a href="login.php">Account</a></li>
               <li><a href="about.html">About</a></li>
-			  <li><a href="staff.html">Staff</a></li>
+			  <li><a href="login_staff.php">Staff</a></li>
               <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
@@ -55,8 +55,6 @@
 echo "<a href=bookspot.php?ID = {?row2 ['lot_id']}> Book Spot</a>";
 
 ?>
-
-      <!-- <p><b id="logout"><a href="logout.php">Log Out</a></b></p> -->
          </div>
       </div>
 

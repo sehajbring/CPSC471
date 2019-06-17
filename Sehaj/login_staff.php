@@ -4,12 +4,12 @@ session_start();
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-  header("location: welcome.php");
+  header("location: welcome_staff.php");
   exit;
 }
  
 // Include config file
-require_once "config.php";
+require_once "config_staff.php";
  
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, username, password FROM users WHERE username = ?";
+        $sql = "SELECT id, username, password FROM users_staff WHERE username = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -64,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;                            
                             
                             // Redirect user to welcome page
-                            header("location: welcome.php");
+                            header("location: welcome_staff.php");
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
@@ -87,19 +87,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($link);
 }
 ?>
- 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Login</title>
-</head>
-<body>
-<!DOCTYPE html>
-
 <html>
 
   <head>
-    <title>About</title>
+    <title>Staff Login</title>
   </head>
 
   <body>
@@ -115,31 +107,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <h3>Menu</h3>
             <ul>
               <li><a href="index.html">Home</a></li>
-              <li><a href="showlots.php">Lots</a></li>
-              <li><a class="selected" href="login.php">Account</a></li>
+              <li><a href="showlots.html">Lots</a></li>
+              <li><a href="login.php">Account</a></li>
               <li><a href="about.html">About</a></li>
-			  <li><a href="login_staff.php">Staff</a></li>
+			  <li><a class="selected" href="">Staff</a></li>
               <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
 
     <div class="wrapper">
-        <h2>Log in</h2>
+        <h2>Staff Log in</h2>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <p><label>Username</label>
+                <p><label>Username:</label>
                 <input type="text" name="username" class="form-control" value="<?php echo $username; ?>"></p>
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <p><label>Password</label>
+                <p><label>Password:</label>
                 <input type="password" name="password" class="form-control"></p>
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Login">
             </div>
-            <center><b><p><a href="register.php">Sign up Here</a></b></p></center>
         </form>
 	</div>
 	</div>

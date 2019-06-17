@@ -1,24 +1,22 @@
 <?php
-    session_start();
-    //include('login.php'); // Includes Login Script
-// Check if the user is already logged in, if yes then redirect him to welcome page
-	//if (isset($_SESSION["loggedin"])){
-	//	header("location: login.php");
-		//exit;
-//}
-    
-    $sy = $_SESSION["lotId"];
     include_once 'includes/dbh.inc.php';
-    if(isset($_GET['ID'])){
-        // $id = mysqli_real_escape_string ($conn, $_GET['ID']);
-        $sql = "SELECT * FROM parking_lot WHERE lot_id = $sy;";
-        $result = mysqli_query ($conn, $sql) or die ("Bad query: $sql");
-        $row = mysqli_fetch_array($result);
-  
-        $sql2 = "SELECT * FROM lot_location WHERE lot_id = $sy;";
-        $result2 = mysqli_query ($conn, $sql2) or die ("Bad query: $sql2");
-        $row2 = mysqli_fetch_array($result2);
-    }   
+
+    $radio_but = $_POST['radibutton'];
+    $licence_num = $_POST['username'];
+    $button = $_POST['submit'];
+
+    $sql = "INSERT INTO "
+
+//     if()
+//     if (!empty($licence_num)){
+//         if(!empty($radio_but)){
+            
+//         }
+//     }
+
+// else{
+//     header();
+// }
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +54,7 @@
 
 		<p> Vehicle size: </p>
 		<p> </p>
-		<form action="bookingconf.php" method="POST">
+		<form action="includes/bookingconf.php" method="post">
 		<?php
 		$sql3 = "SELECT DISTINCT size FROM parking_spot ORDER BY size desc";
 		$result3 = mysqli_query ($conn, $sql3) or die ("Bad query: $sql3");
